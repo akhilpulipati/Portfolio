@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Akhil Pulipati - Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="light-mode">
+
+    <div class="container">
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <button id="theme-toggle" class="nav-btn theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+              
+            <div class="nav-icons">
+                <button class="nav-btn" data-target="education" title="Education">
+                    <i class="fas fa-graduation-cap"></i>
+                </button>
+                <button class="nav-btn" data-target="experience" title="Work Experience">
+                    <i class="fas fa-briefcase"></i>
+                </button>
+                <button class="nav-btn" data-target="projects" title="Projects">
+                    <i class="fas fa-code"></i>
+                </button>
+                <button class="nav-btn" onclick="downloadResume(event);" title="Download Resume">
+                    <i class="fas fa-file-download"></i>
+                </button>
+            </div>
+        </nav>
+
+<!-- Hero Section -->
+<section id="hero" class="active hero-section">
+    <div class="name-block">
+        <h1 class="name-animation">AKHIL PULIPATI</h1>
+    </div>
+    <div id="typed-output"></div> <!-- Typed.js string will appear here -->
+    <div class="about-block">
+        <p>a software engineer passionate about building data-driven solutions and scalable applications. With expertise in cloud technologies, full-stack development, and data analytics, I love transforming ideas into impactful results. Let’s connect and create something innovative together!</p>
+        <button class="get-in-touch-btn" title="Get In Touch">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</section>
+<section id="education" class="section hidden">
+    <div class="education-container">
+        <!-- University of Dayton Card -->
+        <div class="card active">
+            <div class="university-header">
+                <img src="assets/UDlogo.jpg" alt="University of Dayton Logo" class="university-logo">
+                <h2 class="university-name">University of Dayton</h2>
+            </div>
+            <p><em>Master of Science in Computer Science</em></p>
+            <p>Aug 2022 - May 2024</p>
+            <p>GPA: 3.80</p>
+            <p><strong>Relevant Coursework:</strong></p>
+            <ul>
+                <li>Database Management Systems</li>
+                <li>Algorithm Design</li>
+                <li>Advanced Programming & Data Structures with Python</li>
+                <li>Software Project Management</li>
+            </ul>
+        </div>
+
+        <!-- TKR College Card -->
+        <div class="card">
+            <div class="university-header">
+                <img src="assets/TKRlogo.png" alt="TKR College Logo" class="university-logo">
+                <h2 class="university-name">TKR College of Engineering & Technology</h2>
+            </div>
+            <p><em>Bachelor of Technology in Computer Science & Engineering</em></p>
+            <p>Aug 2017 - Jun 2021</p>
+            <p>GPA: 7.55</p>
+        </div>
+
+        <!-- Arrow Buttons -->
+        <button id="prev-btn" class="arrow-btn">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <button id="next-btn" class="arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Home Button -->
+    <div class="home-button-container">
+        <button class="home-icon-btn" title="Home">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section hidden">
+    <div class="experience-container">
+        <!-- RGP Experience Card -->
+        <div class="card rgp-card">
+            <div class="company-header">
+                <img src="assets/RGPlogo.jpeg" alt="RGP Logo" class="company-logo">
+                <h2 class="company-name">RGP</h2>
+            </div>
+            <p><strong>Software Engineer Intern</strong></p>
+            <p><em>May 2023 – Dec 2023</em></p>
+        </div>
+
+        <!-- UST Global Experience Card -->
+        <div class="card ust-card">
+            <div class="company-header">
+                <img src="assets/USTlogo.jpeg" alt="UST Global Logo" class="company-logo">
+                <h2 class="company-name">UST GLOBAL</h2>
+            </div>
+            <p><strong>Associate Software Engineer</strong></p>
+            <p><em>Oct 2021 – Jul 2022</em></p>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="home-button-container">
+        <button class="home-icon-btn experience-btn" title="Home">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section hidden">
+    <div class="projects-container">
+        <!-- Portfolio Project -->
+        <div class="card portfolio-card">
+            <h2>Django Portfolio Website</h2>
+            <p>Currently creating and deploying a dynamic portfolio using Django and Heroku to showcase my work and skills.</p>
+        </div>
+
+        <!-- Web Scraper Project -->
+        <div class="card scraper-card">
+            <h2>Web Scraper</h2>
+            <ul>
+                <li>Scraped IMDB data using BeautifulSoup and Requests.</li>
+                <li>Stored data in Excel with OpenPyXL for analysis.</li>
+                <li>Performed EDA with Pandas and visualized data using Matplotlib and Seaborn.</li>
+            </ul>
+        </div>
+
+        <!-- Rock Paper Scissors Game -->
+        <div class="card rps-card">
+            <h2>Rock Paper Scissors Game</h2>
+            <ul>
+                <li>Interactive game built with Tkinter.</li>
+                <li>Includes dynamic visuals and robust input validation.</li>
+                <li>Optimized for seamless cross-platform compatibility.</li>
+            </ul>
+        </div>
+
+        <!-- Entertainment Guide App -->
+        <div class="card entertainment-card">
+            <h2>Entertainment Guide App</h2>
+            <ul>
+                <li>Android app for exploring movies, TV shows, and events.</li>
+                <li>Uses custom Java adapters for smooth navigation.</li>
+                <li>Provides direct links to streaming platforms for selected content.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="home-button-container">
+        <button class="home-icon-btn projects-btn" title="Home">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Contact Me Section -->
+<section id="contact" class="section hidden">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:pulipatiakhil07@gmail.com">pulipatiakhil07@gmail.com</a></p>
+
+    <div class="social-icons">
+        <a href="https://linkedin.com/in/akhilpulipati" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/akhilpulipati" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <div class="home-button-container">
+        <button class="home-icon-btn contact-btn" title="Home">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+</section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Akhil Pulipati. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+</body>
+
+</html>

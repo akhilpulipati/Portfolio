@@ -1,0 +1,982 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    --bg-color: #f5f5f5; /* Light mode background */
+    --text-color: #333; /* Light mode text */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden; /* Prevent full-page scrolling */
+    transition: background-color 0.5s, color 0.5s; /* Smooth theme transitions */
+}
+
+body.dark-mode {
+    --bg-color: #1b1b1b; /* Dark mode background */
+    --text-color: #eaeaea; /* Dark mode text */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Container */
+.container {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-bottom: 60px; /* Avoid overlap with footer */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #444;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .navbar {
+    background-color: #2f2f2f;
+}
+
+/* Theme Toggle */
+#theme-toggle {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+body.dark-mode #theme-toggle {
+    color: #f0e68c;
+}
+
+/* Navbar Icons */
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+body.dark-mode .nav-btn {
+    color: #a8d5ba;
+}
+
+/* Hero Section Styling - No Scrolling */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent any scroll within the section */
+    position: relative; /* For layout control */
+    padding: 7rem;
+    text-align: center;
+    gap: 1.5rem; /* Space between elements */
+}
+
+/* Body - Prevent scrolling when hero section is active */
+body.no-scroll {
+    overflow: hidden; /* Disable scrolling on the body */
+}
+
+/* Name Block */
+.name-block h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+/* Typed.js Output */
+#typed-output {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* About Block */
+.about-block p {
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* Ensure Spacing Consistency */
+.about-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Gap between paragraph and button */
+}
+
+body.dark-mode .get-in-touch-btn {
+    background-color: #2f855a;
+}
+
+/* Sections */
+section {
+    display: none;
+    height: calc(100vh - 60px); /* Adjust for footer */
+    padding: 2rem;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+section.active {
+    display: block;
+}
+
+body.dark-mode {
+    --bg-color: #1b1b1b;
+    --text-color: #eaeaea;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.dark-mode section {
+    display: block; /* Ensure sections are visible */
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer {
+    background-color: #2f2f2f;
+    color: #eaeaea;
+}
+/* Contact Section Styling */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px); /* Adjust height for footer */
+    padding: 13rem;
+    text-align: center;
+    gap: 2.5rem; /* Space between all elements */
+}
+
+/* Contact Section Title */
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Email Link Styling */
+#contact a {
+    color: #367588;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 1rem; /* Space below email */
+    transition: color 0.3s;
+}
+
+#contact a:hover {
+    color: #028090;
+}
+
+/* Email Link Styling - Dark Mode */
+body.dark-mode #contact a {
+    color: #096529; /* Light green for dark mode */
+}
+
+body.dark-mode #contact a:hover {
+    color: #217b25; /* Brighter green on hover */
+}
+/* Social Icons - Centered with Spacing */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* Spacing between icons */
+    margin-bottom: 2.5rem; /* Space between icons and back button */
+}
+
+.social-icons a {
+    font-size: 2rem;
+    color: white;
+    transition: color 0.3s;
+}
+
+body.dark-mode .social-icons a {
+    color: #a8d5ba;
+}
+
+.social-icons a:hover {
+    color: #00a896;
+}
+
+/* Ensure Horizontal Centering */
+#contact > * {
+    margin: 0 auto; /* Center elements horizontally */
+}
+
+/* University Header Styling */
+.university-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Space between logo and name */
+    margin-bottom: 1rem;
+}
+
+/* University Logo Styling */
+.university-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* University Name Styling */
+.university-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+}
+
+
+/* Education Section Styling */
+.education-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Align items to the top */
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    position: relative; /* Allows positioning of the back button */
+}
+
+/* Card Styling - Normal Mode */
+.card {
+    background-color: #6495ED; /* Light golden color */
+    color: #333; /* Dark text for readability */
+    padding: 2rem;
+    border-radius: 10px;
+    width: 45%; /* Adjust for side-by-side layout */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative;
+    transition: background-color 0.3s, color 0.3s; /* Smooth color transitions */
+}
+
+/* University Header Styling */
+.university-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Space between logo and name */
+    margin-bottom: 1rem;
+}
+
+/* University Logo Styling */
+.university-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* University Name Styling */
+.university-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+}
+
+/* List Styling for Coursework */
+.card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+/* Education Section Styling */
+.education-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height to vertically center the content */
+    position: relative; /* Enable absolute positioning for arrows */
+    overflow: hidden; /* Hide other cards */
+}
+
+/* Card Styling */
+.education-container .card {
+    width: 80%; /* Control the card width */
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #00BFFF; /* Light golden color */
+    color: #333; /* Dark text for readability */
+    position: absolute;
+    top: 50%; /* Vertically center the card */
+    left: 50%; /* Horizontally center the card */
+    transform: translate(-50%, -50%); /* Align card to center */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+}
+
+/* Dark Mode Card Styling */
+body.dark-mode .education-container .card {
+    background-color: #145A32; /* Dark Green Shade */
+    color: #E8F5E9; /* Soft light green text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark mode */
+}
+.education-container .card.active {
+    opacity: 1;
+    z-index: 1;
+}
+/* Arrow Button Styling */
+.arrow-btn {
+    background-color: #4682B4; /* Teal color for arrows */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Vertically align with the cards */
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+.arrow-btn:hover {
+    background-color: #226d84;
+}
+
+/* Positioning Arrows */
+#prev-btn {
+    left: 10%; /* Align to the left side of the card */
+}
+
+#next-btn {
+    right: 10%; /* Align to the right side of the card */
+}
+
+/* Dark Mode Styling */
+body.dark-mode .card {
+    background-color: #1e824c; /* Dark green background */
+    color: #a8d5ba; /* Light green text */
+}
+
+body.dark-mode .arrow-btn,
+body.dark-mode .home-icon-btn {
+    background-color: #2f855a;
+}
+
+body.dark-mode .arrow-btn:hover,
+body.dark-mode .home-icon-btn:hover {
+    background-color: #22543d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-container .card {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    #prev-btn {
+        left: 5%;
+    }
+
+    #next-btn {
+        right: 5%;
+    }
+}
+
+/* Dark Mode Styling */
+body.dark-mode .card {
+    background-color: #1e824c; /* Dark green background */
+    color: #a8d5ba; /* Light green text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
+
+body.dark-mode .university-name {
+    color: #e8f5e9; /* Soft light green */
+}
+
+body.dark-mode .home-icon-btn2 {
+    background-color: #379683; /* Muted green */
+}
+
+body.dark-mode .home-icon-btn2:hover {
+    background-color: #22543d; /* Darker green on hover */
+}
+
+/* Footer Adjustments */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Adjust Spacing to Avoid Overlap */
+.education-container {
+    padding-bottom: 100px; /* Ensure space above the footer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%; /* Full width on smaller screens */
+    }
+
+    .home-icon-btn2 {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
+/* Home Button Container */
+.home-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem; /* Space between the content and button */
+}
+
+/* Dark Mode Support */
+body.dark-mode .card {
+    background-color: #2f2f2f;
+    color: #eaeaea;
+}
+
+body.dark-mode .home-icon-btn {
+    background-color: #2f855a;
+}
+/* Home Button Container */
+.home-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+/* General Home Button Styling */
+.home-icon-btn {
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Card Styling for Each Section */
+.ud-card {
+    background-color: #6495ED; /* Light pink for University of Dayton */
+}
+
+.tkr-card {
+    background-color: #6495ED; /* Light orange for TKR College */
+}
+
+/* Dark Mode Styling for Cards */
+body.dark-mode .ud-card {
+    background-color: #3B8C77;
+}
+
+body.dark-mode .tkr-card {
+    background-color: #3B8C77;
+}
+
+/* Individual Home Button Colors */
+.education-btn {
+    background-color: #00b894;
+}
+
+.experience-btn {
+    background-color: #6c5ce7;
+}
+
+.projects-btn {
+    background-color: #0984e3;
+}
+
+.contact-btn {
+    background-color: #d63031;
+}
+
+/* Hover Effects */
+.home-icon-btn:hover {
+    filter: brightness(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+}
+/* Projects Container Styling */
+.projects-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 80vh; /* Limit height to enable scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Card Styling */
+.card {
+    width: 100%; /* Full width inside the container */
+    max-width: 600px; /* Limit width on larger screens */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+/* Unique Colors for Light Mode */
+.portfolio-card {
+    background-color: #4682B4; /* Light peach */
+}
+
+.scraper-card {
+    background-color: #4682B4; /* Light sky blue */
+}
+
+.rps-card {
+    background-color: #4682B4; /* Light green */
+}
+
+.entertainment-card {
+    background-color: #4682B4; /* Light yellow */
+}
+
+/* Unique Colors for Dark Mode */
+body.dark-mode .portfolio-card {
+    background-color: #2E6956; /* Darker peach */
+}
+
+body.dark-mode .scraper-card {
+    background-color: #2E6956; /* Sky blue shade */
+}
+
+body.dark-mode .rps-card {
+    background-color: #2E6956; /* Bright green shade */
+}
+
+body.dark-mode .entertainment-card {
+    background-color: #2E6956; /* Yellow shade */
+}
+
+/* Back Button Styling */
+.home-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.home-icon-btn {
+    background-color: #00b894; /* Teal color */
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.home-icon-btn:hover {
+    background-color: #019267;
+}
+
+/* Dark Mode for Back Button */
+body.dark-mode .home-icon-btn {
+    background-color: #2f855a; /* Green shade for dark mode */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%; /* Full width on smaller screens */
+    }
+}
+/* Experience Container Styling */
+.experience-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* General Card Styling */
+.card {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 45%; /* For side-by-side layout */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black; /* Ensure text is readable */
+    transition: background-color 0.3s;
+}
+
+/* Company Header Styling */
+.company-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Company Logo Styling */
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Company Name Styling */
+.company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+}
+
+/* RGP Card Colors */
+.rgp-card {
+    background-color: #1E90FF; /* Light cyan */
+}
+
+body.dark-mode .rgp-card {
+    background-color: #006064; /* Dark cyan */
+}
+
+/* UST Card Colors */
+.ust-card {
+    background-color: #1E90FF; /* Light yellow */
+}
+
+body.dark-mode .ust-card {
+    background-color: #006064; /* Dark yellow */
+}
+
+/* Back Button Styling */
+.home-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.home-icon-btn {
+    background-color: 	#4682B4; /* Bright teal color */
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.home-icon-btn:hover {
+    background-color: #21abd4;
+}
+
+/* Dark Mode for Back Button */
+body.dark-mode .home-icon-btn {
+    background-color: #2f855a;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .experience-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%; /* Full width on smaller screens */
+    }
+}
+/* Name Animation for Light Mode (Shades of Black) */
+@keyframes light-mode-animation {
+    0% { color: #000; }
+    25% { color: #333; }
+    50% { color: #555; }
+    75% { color: #777; }
+    100% { color: #000; }
+}
+
+/* Name Animation for Dark Mode (Shades of Green) */
+@keyframes dark-mode-animation {
+    0% { color: #004d40; }
+    25% { color: #00796b; }
+    50% { color: #009688; }
+    75% { color: #26a69a; }
+    100% { color: #004d40; }
+}
+
+/* Apply Animation to the Name */
+.name-animation {
+    font-size: 5rem;
+    font-weight: 900;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; /* Loop infinitely */
+}
+
+/* Light Mode Animation */
+body:not(.dark-mode) .name-animation {
+    animation-name: light-mode-animation;
+}
+
+/* Dark Mode Animation */
+body.dark-mode .name-animation {
+    animation-name: dark-mode-animation;
+}
+/* Keyframes for Light Mode (Shades of Blue) */
+@keyframes light-mode-blue {
+    0% { background-color: #4fc3f7; }  /* Light Blue */
+    25% { background-color: #42a5f5; }
+    50% { background-color: #2196f3; }
+    75% { background-color: #1e88e5; }
+    100% { background-color: #4fc3f7; }
+}
+
+/* Keyframes for Dark Mode (Shades of Gray) */
+@keyframes dark-mode-gray {
+    0% { background-color: #424242; }  /* Dark Gray */
+    25% { background-color: #616161; }
+    50% { background-color: #757575; }
+    75% { background-color: #9e9e9e; }
+    100% { background-color: #424242; }
+}
+
+/* Header (Navbar) Animation */
+.navbar {
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Footer Animation */
+.footer {
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Light Mode Animation for Navbar and Footer */
+body:not(.dark-mode) .navbar, 
+body:not(.dark-mode) .footer {
+    animation-name: light-mode-blue;
+}
+
+/* Dark Mode Animation for Navbar and Footer */
+body.dark-mode .navbar, 
+body.dark-mode .footer {
+    animation-name: dark-mode-gray;
+}
+
+/* Default Navbar Icon Styling */
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition */
+}
+
+/* Neon Green Icons in Dark Mode */
+body.dark-mode .nav-btn {
+    color: #39FF14; /* Neon Green */
+    text-shadow: 0 0 10px #20CC00, 0 0 20px #106600; /* Glowing effect */
+}
+
+/* Icon Hover Effect */
+body.dark-mode .nav-btn:hover {
+    color: #32CD32; /* Slightly darker neon green on hover */
+    text-shadow: 0 0 15px #106600, 0 0 25px #20CC00;
+}
+/* General Button Styling */
+.get-in-touch-btn, .home-icon-btn {
+    background-color: #4682B4;
+    border: none;
+    border-radius: 50%; /* Circle shape */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out; /* Smooth shape transition */
+}
+
+/* Shape Change in Dark Mode */
+body.dark-mode .get-in-touch-btn,
+body.dark-mode .home-icon-btn {
+    border-radius: 15%; /* Circled square shape */
+    background-color: #367588 ; /* Greenish dark background */
+}
+
+/* Hover Effect */
+.get-in-touch-btn:hover, 
+.home-icon-btn:hover {
+    filter: brightness(1.2); /* Slight brightness increase on hover */
+}
+
+/* Dark Mode Hover Effect */
+body.dark-mode .get-in-touch-btn:hover,
+body.dark-mode .home-icon-btn:hover {
+    background-color: #22543d; /* Slightly darker shade on hover */
+}
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure body takes the full viewport height */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar - Adjust icon size for smaller screens */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #444;
+    z-index: 100;
+}
+
+.navbar i {
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+/* Sections - Fullscreen height for consistency */
+section {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Cards - Stack cards vertically on mobile */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.education-container .card {
+    width: 100%; /* Full width on mobile */
+    max-width: 500px;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+/* Adjust Arrow Button Size on Mobile */
+.arrow-btn {
+    width: 40px;
+    height: 40px;
+}
+
+.home-icon-btn {
+    margin-top: 2rem;
+    width: 50px;
+    height: 50px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar i {
+        font-size: 1.2rem;
+    }
+
+    .education-container {
+        padding: 1rem;
+    }
+
+    .education-container .card {
+        width: 90%; /* Full width on mobile */
+    }
+
+    .arrow-btn {
+        width: 30px;
+        height: 30px;
+    }
+}
